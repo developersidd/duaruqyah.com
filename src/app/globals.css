@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  /* for light theme */
+  :root {
+    --color-green: 82 167 111;
+    --color-black: 41 45 50;
+    --color-gray: 41 45 50 10;
+    --color-light-gray: #d0dccf80;
+    --color-lime: 247 250 244;
+  }
+  /*
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-green: ;
+      --color-black: ;
+      --color-gray: ;
+      --color-lime: ;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-green: ;
+    --color-black: ;
+    --color-gray: ;
+    --color-lime: ;
+  }
+*/
+  :root[data-theme="light"] {
+    --color-green: 82 167 111;
+    --color-black: 41 45 50;
+    --color-gray: 41 45 50 10;
+    --color-lime: 247 250 244;
+  }
+}
