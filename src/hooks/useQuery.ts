@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { api } from "./../api/index";
 
 interface QueryResponse<T> {
   data: T | null;
@@ -7,7 +8,7 @@ interface QueryResponse<T> {
   error: any;
 }
 
-const useQuery = <T>(url: string): QueryResponse<T> => {
+const useQuery = <T>(pathname: string): QueryResponse<T> => {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
@@ -16,9 +17,10 @@ const useQuery = <T>(url: string): QueryResponse<T> => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch(url);
-        const fetchedData: T = await res.json();
-        setData(fetchedData);
+        const res = await api.get(pathname);
+        if (res.status === 200 || res.statusText === "OK") {
+          setData(res.data);
+        }
       } catch (error: any) {
         setError(error);
       } finally {
@@ -27,7 +29,7 @@ const useQuery = <T>(url: string): QueryResponse<T> => {
     };
 
     fetchData();
-  }, [url]);
+  }, [pathname]);
 
   return {
     data,

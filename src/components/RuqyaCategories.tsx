@@ -3,8 +3,9 @@ import useQuery from "@/hooks/useQuery";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import AudioPlayerCom from "./AudioPlayerCom";
+import RuqyaList from "./RuqyaList";
 
-type Category = {
+export type Category = {
   id: number;
   cat_name: string;
   no_of_subcat: number;
@@ -14,10 +15,12 @@ type Category = {
 
 const RuqyaCategories = () => {
   const { data, error, isLoading } = useQuery<Category[]>(
-    "https://api.duaruqyah.com/api/category/bn"
+    "/category/bn"
   );
   const isTabletOrMobile = useMediaQuery({ query: "(min-width: 1060px)" });
-
+  const calculateRuqyas = data
+  ?.slice(0, 12)!
+  .slice(isTabletOrMobile ? 0 : 4)
   // decide what to render
   let content;
   if (isLoading) {
@@ -29,35 +32,7 @@ const RuqyaCategories = () => {
   } else if (error) {
     content = <p>Error: {error.message}</p>;
   } else {
-    content = data
-      ?.slice(0, 12)!
-      .slice(isTabletOrMobile ? 0 : 4)
-      .map((category) => (
-        <div
-          key={category.id}
-          className="rounded-[15px] border p-2 md:p-[10px]"
-        >
-          <div className="flex items-center gap-3 2xl:gap-[15px]">
-            <div className="bg-[#292D320D] p-3 rounded-xl min-w-max">
-              <Image
-                className="size-[34px] 2xl:size-[36px]"
-                src={`/assets/icons/${category.cat_icon}.svg`}
-                width={30}
-                height={30}
-                alt={"icon"}
-              />
-            </div>
-            <div>
-              <h3 className=" 2xl:text-base font-semibold">
-                {category.cat_name}
-              </h3>
-              <small className="text-gray-500">
-                সাবক্যাটাগরিঃ {category.no_of_subcat}
-              </small>
-            </div>
-          </div>
-        </div>
-      ));
+    content = <RuqyaList ruqyas={calculateRuqyas} />      
   }
 
   return (
@@ -81,9 +56,7 @@ const RuqyaCategories = () => {
       <div className="flex flex-col lg:flex-row items-cente justify-between gap-6">
         {/* dua list */}
         <div className="order-2 lg:order-1 w-full lg:w-2/3">
-          <div className=" grid md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-[15px]">
-            {content}
-          </div>
+          {content}
           <button className="md:hidden px-4 lg:px-[18px] text-[12px] py-2 mx-auto mt-7 rounded-full flex items-center gap-1 bg-primary-light-gray">
             <span> সবগুলো দেখুন </span>
             <Image

@@ -50,7 +50,7 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={() => handleChangeTheme(theme)}
-      className="size-[32px] md:size-[40px] 2xl:size-[46px]  border-[1.5px]  border-primary-light-gray rounded-lg bg-primary-light-gray"
+      className="size-[32px] md:size-[40px] 2xl:size-[42px] border-[1.5px]  border-primary-light-gray rounded-lg bg-primary-light-gray"
     >
       {theme === "dark" ? (
         <Icon classes="size-[16px] md:size-[18px]" name="sun.svg" alt="hearts" />

@@ -10,35 +10,23 @@
     margin: 0;
     padding: 0;
   }
-  /* for light theme */
+
+  /* Light Theme */
   :root {
     --color-green: 82 167 111;
     --color-black: 41 45 50;
-    --color-gray: 41 45 50 10;
-    --color-light-gray: #d0dccf80;
+    --color-gray: rgba(41, 45, 50, 0.1);
+    --color-light-gray: rgba(208, 220, 207, 0.5);
     --color-lime: 247 250 244;
-  }
-  /*
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-green: ;
-      --color-black: ;
-      --color-gray: ;
-      --color-lime: ;
-    }
   }
 
-  :root[data-theme="dark"] {
-    --color-green: ;
-    --color-black: ;
-    --color-gray: ;
-    --color-lime: ;
-  }
-*/
-  :root[data-theme="light"] {
+  /* Dark Theme */
+
+  .dark {
     --color-green: 82 167 111;
-    --color-black: 41 45 50;
-    --color-gray: 41 45 50 10;
-    --color-lime: 247 250 244;
+    --color-black: 247 250 244;
+    --color-gray: rgba(247, 250, 244, 0.1);
+    --color-light-gray: rgba(208, 220, 207, 0.5);
+    --color-lime: 41 45 50;
   }
 }
