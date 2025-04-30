@@ -7,7 +7,7 @@ function Icon({
 }: {
   name: string;
   alt: string;
-  classes: string;
+  classes?: string;
 }) {
   return (
     <Image

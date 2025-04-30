@@ -5,7 +5,7 @@ const DuaCategoryList = ({ duas }: { duas: Category[] | null }) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5  md:mt-6 lg:mt-0">
       {duas?.map((dua) => {
-        const { id, cat_name, no_of_subcat, no_of_dua, cat_icon } = dua || {};
+        const { id, cat_name_bn, no_of_subcat, no_of_dua, cat_icon } = dua || {};
         return (
           <div key={id} className="rounded-xl border p-2 md:p-3">
             <div className="flex items-center justify-betwee gap-3">
@@ -21,7 +21,7 @@ const DuaCategoryList = ({ duas }: { duas: Category[] | null }) => {
               <div className="hidden md:block">
                 <h3 className="text-sm md:text-lg font-semibold">
                   {" "}
-                  {cat_name}{" "}
+                  {cat_name_bn}{" "}
                 </h3>
                 <small className="text-gray-500">
                   সাবক্যাটাগরিঃ {no_of_subcat}
@@ -36,7 +36,7 @@ const DuaCategoryList = ({ duas }: { duas: Category[] | null }) => {
                 <div className="w-full">
                   <h3 className="text-sm md:text-lg font-semibold">
                     {" "}
-                    {cat_name}{" "}
+                    {cat_name_bn}{" "}
                   </h3>
                   <small className="text-gray-500">
                     সাবক্যাটাগরিঃ {no_of_subcat}

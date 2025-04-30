@@ -15,10 +15,11 @@ export type Category = {
 
 const RuqyaCategories = () => {
   const { data, error, isLoading } = useQuery<Category[]>(
-    "/category/bn"
+    "/category"
   );
+  console.log("sss data:", data)
   const isTabletOrMobile = useMediaQuery({ query: "(min-width: 1060px)" });
-  const calculateRuqyas = data
+  const calculateRuqyas = data?.data
   ?.slice(0, 12)!
   .slice(isTabletOrMobile ? 0 : 4)
   // decide what to render

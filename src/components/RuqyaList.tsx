@@ -16,7 +16,9 @@ const RuqyaList = ({ ruqyas }) => {
               />
             </div>
             <div>
-              <h3 className=" 2xl:text-base font-semibold">{ruqya.cat_name}</h3>
+              <h3 className=" 2xl:text-base font-semibold">
+                {ruqya.cat_name_bn}
+              </h3>
               <small className="text-gray-500">
                 সাবক্যাটাগরিঃ {ruqya.no_of_subcat}
               </small>

@@ -1,4 +1,4 @@
 import axios from "axios";
 export const api = axios.create({
-  baseURL: "https://api.duaruqyah.com/api",
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 });

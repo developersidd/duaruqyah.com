@@ -1,9 +1,9 @@
 "use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import ThemeSwitcher from "../ThemeSwitcher";
 import Button from "../common/Button";
-import HamburgerMenu from "../ui/HamburgerMenu";
 import NavLinks from "./NavLinks/NavLinks";
 import ResponsiveNavLinks from "./NavLinks/ResponsiveLavLinks";
 
@@ -43,13 +43,14 @@ const Header = () => {
             alt="logo"
           />
           <h3 className="text-[15px] sm:text-[20px] lg:text-xl font-bold">
-            দোয়া রুকিয়া
+            {" "}
+            দোয়া রুকিয়া{" "}
           </h3>
         </div>
         {/* Nav Link */}
         <NavLinks />
         <div className="flex items-center gap-[10px] sm:gap-3 lg:gap-5">
-           {/* Theme */}
+          {/* Theme */}
           <ThemeSwitcher />
 
           <Button
@@ -58,7 +59,58 @@ const Header = () => {
             btnClasses="hidden md:flex"
           />
           {/* Hamburger Menu */}
-          <HamburgerMenu isOpen={isOpen} onToggle={setIsOpen} />
+          <motion.div
+            animate={isOpen ? "open" : "closed"}
+            onClick={() => {
+              console.log("clicked");
+              setIsOpen(!isOpen);
+            }}
+            className="xl:hidden z-30  size-[32px] md:size-[40px] 2xl:size-[46px]  px-[5px]  py-2 rounded-md border-[1.5px] border-primary-light-gray grid place-items-center bg-primary-light-gray space-y-[6px] cursor-pointer"
+          >
+            <motion.div
+              style={{ transformOrigin: "0% 0%" }}
+              variants={{
+                open: {
+                  rotate: 41,
+                  x: 2,
+                  y: 1,
+                },
+                closed: {
+                  rotate: 0,
+                },
+              }}
+              transition={{ duration: 0.3 }}
+              className="w-full rounded h-[1.3px] bg-primary-black"
+            ></motion.div>
+            <motion.div
+              variants={{
+                open: {
+                  x: -50,
+                  opacity: 0,
+                  display: "none",
+                },
+                closed: {
+                  x: 0,
+                  opacity: 1,
+                },
+              }}
+              className="w-full rounded h-[1.3px] bg-primary-black/30"
+            ></motion.div>
+            <motion.div
+              style={{ transformOrigin: "0% 100%" }}
+              variants={{
+                open: {
+                  rotate: -39,
+                  x: 2,
+                },
+                closed: {
+                  rotate: 0,
+                },
+              }}
+              transition={{ duration: 0.3 }}
+              className="w-full rounded h-[1.3px] bg-primary-black"
+            ></motion.div>
+          </motion.div>
           {/* Responsive Nav Link */}
         </div>
       </header>
