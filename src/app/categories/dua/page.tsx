@@ -23,16 +23,16 @@ export default function Home() {
           </div>
         </div>
       </DashboardHeader>
-      <main className="bg-secondary scroll-smooth py-14 w-[calc(100vw-85px)] px-10 grid grid-cols-[350px,1fr,300px] fixed top-[60px] right-0 gap-x-7 gap-y-5 rounded-l-xl bg-[#F5F5F5] border  border-[#292D320D]">
-        <section className="h-[calc(100vh-146px)] w-full  bg-white">
+      <main className="bg-secondary scroll-smooth py-5 w-[calc(100vw-85px)] px-5 grid grid-cols-[350px,1fr,300px] fixed top-[60px] right-0 gap-x-7 gap-y-5 rounded-l-xl bg-[#F5F5F5] border  border-[#292D320D]">
+        <section className="h-[calc(100vh-100px)] w-full  bg-white px-2 py-3 rounded-xl">
           <Categories />
         </section>
 
-        <section className="h-[calc(100vh-100px)] overflow-y-auto pb-12 w-[calc(100vw-915px)]">
+        <section className="h-[calc(100vh-100px)] w-full overflow-y-auto scrollbar-hide ">
           <DuaList />
         </section>
 
-        <section className="h-[calc(100vh-146px)]">
+        <section className="h-[calc(100vh-100px)]">
           <Settings />
         </section>
       </main>

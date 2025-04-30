@@ -26,6 +26,7 @@ const CategoryItem = ({ category, onActive, isActive }) => {
         throw new Error("Failed to fetch data");
       }
       const data = await res.json();
+      console.log(" data:", data?.data[0])
       setSubcategories(data.data);
     } catch (error) {
       console.log("error:", error);
@@ -52,7 +53,7 @@ const CategoryItem = ({ category, onActive, isActive }) => {
       <Link
         onClick={() => onActive(cat_id)}
         key={cat_id}
-        href={`/categories/dua?cat_id=${cat_id}`}
+        href={`/categories/dua?cat_id=${cat_id}&subcat_id=${subcategories[0]?.subcat_id}`}
         className={`${
           isActive ? "bg-[#E8F0F5]" : ""
         }  hover:bg-[#E8F0F5] block rounded-lg cursor-pointer group/card`}

@@ -52,7 +52,7 @@ const DuaList = () => {
   } else if (!loading && !error && !duas?.length) {
     content = <div> No Dua Found </div>;
   }
-  return <div className="space-y-5">{content}</div>;
+  return <div className="space-y-5 ">{content}</div>;
 };
 
 export default DuaList;

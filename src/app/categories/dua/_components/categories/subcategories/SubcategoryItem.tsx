@@ -15,19 +15,19 @@ const SubcategoryItem = ({ subcategory, onActive, isActive, duas }) => {
         href={`/categories/dua?cat_id=${cat_id}&subcat_id=${subcat_id}`}
         onClick={handleActiveSubcategory}
         key={subcat_id}
-        className="cursor-pointer py-2 block pl-2 relative
-      before:size-[7px] before:bg-primary before:top-4 before:-left-[13px] before:absolute before:rounded-full"
+        className={`cursor-pointer py-2 block pl-2 relative
+       ${isActive ? "before:size-[7px] before:bg-primary-green" : ""} before:top-4 before:-left-[12.5px] before:absolute before:rounded-full`}
       >
         <h4
           className={`${
-            isActive ? "font-bold text-primary" : ""
+            isActive ? "font-bold text-primary-green" : ""
           } text-[0.875rem] text-gray-700 font-medium`}
         >
           {subcat_name_en}
         </h4>
       </Link>
       {isActive && (
-        <div className="ml-2">
+        <div className="ml-2 flex flex-col items-start">
           {duas?.map((dua) => (
             <Link
               href={

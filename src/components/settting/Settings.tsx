@@ -9,7 +9,7 @@ const icons = [
     children: () => {
       return (
         <div className="mt-2 p-4 mx-auto text-center">
-          <button className="px-8 text-sm py-2 rounded-md bg-primary text-white  mr-3">
+          <button className="px-8 text-sm py-2 rounded-md bg-primary-green text-white  mr-3">
             English
           </button>
           <button className="px-8 text-sm py-2 rounded-md border">বাংলা</button>
@@ -54,7 +54,7 @@ const icons = [
 const Settings = () => {
   const [active, setActive] = useState("language settings");
   return (
-    <div className="bg-white rounded-3xl h-full px-4">
+    <div className="bg-white rounded-lg h-full px-4">
       <div className="py-8">
         <h3 className="text-center text-lg md:text-xl"> Settings </h3>
       </div>
@@ -76,7 +76,7 @@ const Settings = () => {
                   <div
                     className={`px-3 py-2 flex items-center gap-3 ${
                       isActive
-                        ? "bg-gray-100 border-l-4 border-primary rounded"
+                        ? "bg-gray-100 border-l-4 border-primary-green rounded"
                         : ""
                     }`}
                   >
@@ -91,7 +91,7 @@ const Settings = () => {
                     </div>
                     <p
                       className={`text-gray-500 font-medium capitalize text-sm ${
-                        isActive ? "text-primary " : ""
+                        isActive ? "text-primary-green " : ""
                       }`}
                     >
                       {icon.name}
