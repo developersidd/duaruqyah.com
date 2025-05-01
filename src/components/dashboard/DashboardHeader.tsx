@@ -1,9 +1,9 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import ThemeSwitcher from "../ThemeSwitcher";
 import Button from "../common/Button";
 import HamburgerMenu from "../ui/HamburgerMenu";
+import ThemeSwitcher from "../ui/ThemeSwitcher";
 
 const DashboardHeader = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);

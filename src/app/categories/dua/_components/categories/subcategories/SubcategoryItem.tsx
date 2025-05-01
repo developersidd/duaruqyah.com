@@ -1,22 +1,33 @@
 import Icon from "@/components/common/Icons";
+import { Dua, SubCategory } from "@/types/index.type";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-const SubcategoryItem = ({ subcategory, onActive, isActive, duas }) => {
+import { FC } from "react";
+
+type SubcategoryItemProps = {
+  subcategory: SubCategory;
+  isActive: boolean;
+  duas: Dua[];
+};
+
+const SubcategoryItem: FC<SubcategoryItemProps> = ({
+  subcategory,
+  isActive,
+  duas,
+}) => {
   const searchParams = useSearchParams();
   const cat_id = searchParams.get("cat_id");
   const { subcat_name_en, subcat_id } = subcategory || {};
-  const handleActiveSubcategory = () => {
-    onActive(subcat_id);
-  };
 
   return (
     <>
       <Link
         href={`/categories/dua?cat_id=${cat_id}&subcat_id=${subcat_id}`}
-        onClick={handleActiveSubcategory}
         key={subcat_id}
         className={`cursor-pointer py-2 block pl-2 relative
-       ${isActive ? "before:size-[7px] before:bg-primary-green" : ""} before:top-4 before:-left-[12.5px] before:absolute before:rounded-full`}
+       ${
+         isActive ? "before:size-[7px] before:bg-primary-green" : ""
+       } before:top-4 before:-left-[12.5px] before:absolute before:rounded-full`}
       >
         <h4
           className={`${

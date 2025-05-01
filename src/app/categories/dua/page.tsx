@@ -6,7 +6,7 @@ import Settings from "../../../components/settting/Settings";
 import Categories from "./_components/categories/Categories";
 
 type HomeProps = {
-  searchParams: Promise<{ [key: string]: string  }>;
+  searchParams: Promise<{ [key: string]: string }>;
 };
 
 const Home = async ({ searchParams }: HomeProps) => {
@@ -23,10 +23,6 @@ const Home = async ({ searchParams }: HomeProps) => {
           </h3>
           <div className="flex items-center gap-x-2 ">
             <h5 className="text-sm text-primary-black/60"> Dua Categories </h5>
-            <h5 className="text-sm text-primary-black/60">
-              {" "}
-              Dua Categories{" "}
-            </h5>{" "}
             <Icon name="right-arrow.svg" alt="right-arrow" classes="size-4" />
             <h5 className="text-sm text-primary-black/60"> Dua Details </h5>
           </div>

@@ -1,23 +1,27 @@
+import { getCategories } from "@/api/categories.api";
 import Banner from "@/components/Banner";
 import Collection from "@/components/Collection/Collection";
 import DownloadApp from "@/components/DownloadApp";
-import Categories from "@/components/DuaCategories";
+import DuaCategories from "@/components/DuaCategories";
 import MenuItems from "@/components/MenuItems";
 import RuqyaCategories from "@/components/RuqyaCategories";
 import Testimonial from "@/components/Testimonial";
 
-export default function Home() {
+const Home = async () => {
+  const { data, error } = (await getCategories()) || {};
   return (
     <main className="">
       <Banner />
       <section className="!overflow-x-hidden">
         <MenuItems />
         <Collection />
-        <Categories />
+        <DuaCategories categories={data} />
         <Testimonial />
-        <RuqyaCategories />
+        <RuqyaCategories categories={data} />
         <DownloadApp />
       </section>
     </main>
   );
-}
+};
+
+export default Home;

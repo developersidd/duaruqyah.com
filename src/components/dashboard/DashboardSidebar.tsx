@@ -5,13 +5,15 @@ import Icon from "../common/Icons";
 const DashboardSidebar = () => {
   return (
     <aside className="fixed w-20 h-full top-0 left-0 bg-white px-2 py-[10px] flex flex-col justify-between items-center">
+      <Link href="/">
       <Image
         className="size-[30px] sm:size-[35px] md:size-10 xl:size-[46px]"
         src="/assets/icons/logo.svg"
         width={60}
         height={50}
         alt="logo"
-      />
+        />
+        </Link>
       <nav className="">
         <ul className="space-y-6">
           <li className="py-[10px] px-3  border border-primary-black/10 rounded-lg">

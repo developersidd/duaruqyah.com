@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Icon from "./common/Icons";
+import Icon from "../common/Icons";
 
 const ThemeSwitcher = () => {
   const [theme, setTheme] = useState("dark");
@@ -53,7 +53,11 @@ const ThemeSwitcher = () => {
       className="size-[32px] md:size-[40px] 2xl:size-[42px] border-[1.5px]  border-primary-light-gray rounded-lg bg-primary-light-gray"
     >
       {theme === "dark" ? (
-        <Icon classes="size-[16px] md:size-[18px]" name="sun.svg" alt="hearts" />
+        <Icon
+          classes="size-[16px] md:size-[18px]"
+          name="sun.svg"
+          alt="hearts"
+        />
       ) : (
         "🌙"
       )}

@@ -2,8 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import ThemeSwitcher from "../ThemeSwitcher";
 import Button from "../common/Button";
+import ThemeSwitcher from "../ui/ThemeSwitcher";
 import NavLinks from "./NavLinks/NavLinks";
 import ResponsiveNavLinks from "./NavLinks/ResponsiveLavLinks";
 
@@ -32,7 +32,7 @@ const Header = () => {
           height={300}
           alt="light"
         />
-  
+
         {/* Logo */}
         <div className="flex items-end md:items-center gap-2">
           <Image
