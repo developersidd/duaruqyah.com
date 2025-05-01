@@ -21,7 +21,6 @@ const DashboardHeader = ({ children }: { children: ReactNode }) => {
         <ThemeSwitcher />
         {/* Hamburger Menu */}
         <HamburgerMenu isOpen={isOpen} onToggle={setIsOpen} />
-        {/* Responsive Nav Link */}
       </div>
     </header>
   );

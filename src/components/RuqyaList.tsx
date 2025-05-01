@@ -1,5 +1,6 @@
 import { Category } from "@/types/index.type";
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 type RuqyaListProps = {
@@ -9,8 +10,10 @@ const RuqyaList: FC<RuqyaListProps> = ({ ruqyas }) => {
   return (
     <div className=" grid md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-[15px]">
       {ruqyas.map((ruqya) => {
-        const { id, cat_name_bn, no_of_subcat, cat_icon } = ruqya || {};
+        const { id, cat_name_bn, cat_id, no_of_subcat, cat_icon } = ruqya || {};
         return (
+          <Link href={`/categories/dua?cat_id=${cat_id}`} key={id}>
+
           <div key={id} className="rounded-[15px] border p-2 md:p-[10px]">
             <div className="flex items-center gap-3 2xl:gap-[15px]">
               <div className="bg-[#292D320D] p-3 rounded-xl min-w-max">
@@ -20,7 +23,7 @@ const RuqyaList: FC<RuqyaListProps> = ({ ruqyas }) => {
                   width={30}
                   height={30}
                   alt={"icon"}
-                />
+                  />
               </div>
               <div>
                 <h3 className=" 2xl:text-base font-semibold">{cat_name_bn}</h3>
@@ -30,6 +33,7 @@ const RuqyaList: FC<RuqyaListProps> = ({ ruqyas }) => {
               </div>
             </div>
           </div>
+                  </Link>
         );
       })}
     </div>

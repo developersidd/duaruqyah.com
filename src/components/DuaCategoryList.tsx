@@ -1,5 +1,6 @@
 import { Category } from "@/types/index.type";
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 type DuaCategoryListProps = {
@@ -10,9 +11,12 @@ const DuaCategoryList: FC<DuaCategoryListProps> = ({ categories }) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5  md:mt-6 lg:mt-0">
       {categories?.map((category) => {
-        const { id, cat_name_bn, no_of_subcat, no_of_dua, cat_icon } =
+        const { id, cat_name_bn, no_of_subcat, no_of_dua, cat_icon, cat_id } =
           category || {};
         return (
+          <Link href={`/categories/dua?cat_id=${cat_id}`} key={id}>
+
+          
           <div key={id} className="rounded-xl border p-2 md:p-3">
             <div className="flex items-center justify-betwee gap-3">
               <div className="bg-[#292D320D] p-3 rounded-xl min-w-max">
@@ -58,6 +62,7 @@ const DuaCategoryList: FC<DuaCategoryListProps> = ({ categories }) => {
               </div>
             </div>
           </div>
+          </Link>
         );
       })}
     </div>
