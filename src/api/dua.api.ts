@@ -1,0 +1,15 @@
+import { api } from ".";
+
+const getDuasByCategory = async (cat_id: string) => {
+  try {
+    const res = await api.get(`/api/v1/dua/${cat_id}`);
+    if (res.status === 200) {
+      return { data: res.data?.data };
+    }
+  } catch (error) {
+    console.log(" error:", error);
+    return { error: "Something went wrong" };
+  }
+};
+
+export { getDuasByCategory };

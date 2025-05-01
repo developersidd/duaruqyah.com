@@ -17,7 +17,7 @@ const useQuery = <T>(pathname: string): QueryResponse<T> => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const res = await api.get(pathname);
+        const res = await api.get(`/api/v1${pathname}`);
         if (res.status === 200 || res.statusText === "OK") {
           setData(res.data);
         }

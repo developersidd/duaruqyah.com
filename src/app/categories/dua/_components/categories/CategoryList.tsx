@@ -1,18 +1,19 @@
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Category } from "@/types/index.type";
 import CategoryItem from "./CategoryItem";
 
-const CategoryList = ({ categories }) => {
-  const searchParams = useSearchParams();
-  const cat_id = searchParams.get("cat_id");
-  const [active, setActive] = useState(Number(cat_id) || 1);
+type CategoryListProps = {
+  categories: Category[];
+  searchParams: URLSearchParams;
+};
 
+const CategoryList = ({ categories, searchParams }: CategoryListProps) => {
+  console.log(" searchParams:", searchParams);
+  const cat_id = Number(searchParams.get("cat_id"));
   return (
     <div className="space-y-3">
       {categories?.map((category) => (
         <CategoryItem
-          isActive={active === Number(category.cat_id)}
-          onActive={setActive}
+          isActive={cat_id === Number(category.cat_id)}
           key={category?.cat_id}
           category={category}
         />

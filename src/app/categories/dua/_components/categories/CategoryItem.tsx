@@ -1,59 +1,34 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import SubcategoryList from "./subcategories/SubcategoryList";
+import { getDuasByCategory } from "@/api/dua.api";
+import { getSubCategories } from "@/api/subCategories.api";
 import Icon from "@/components/common/Icons";
+import { Category } from "@/types/index.type";
+import Link from "next/link";
+import SubcategoryList from "./subcategories/SubcategoryList";
 
-const CategoryItem = ({ category, onActive, isActive }) => {
+type CategoryItemProps = {
+  category: Category;
+  isActive: Boolean;
+};
+
+const CategoryItem = async ({ category, isActive }: CategoryItemProps) => {
   const { cat_id, cat_name_en, cat_icon, no_of_subcat, no_of_dua } =
     category || {};
-  const [subcategories, setSubcategories] = useState([]);
-  const [duas, setDuas] = useState([]);
-  useEffect(() => {
-    // Fetch dua by category and subcategory when category is active
-    if (isActive) {
-      handleFetchSubcategory();
-      handleFetchDuaByCategory();
-    }
-  }, [isActive]);
-
-  // Fetch subcategory
-  const handleFetchSubcategory = async () => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/subcategory/${cat_id}`
-      );
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await res.json();
-      console.log(" data:", data?.data[0])
-      setSubcategories(data.data);
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
-
+    // Fetch subcategory
+  const { data: subcategories, error } =
+    (await getSubCategories(cat_id + "")) || {};
   // Fetch dua by category
-  const handleFetchDuaByCategory = async () => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/dua/${cat_id}`
-      );
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await res.json();
-      setDuas(data.data);
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
+  const { data: duas, error: duasError } =
+    (await getDuasByCategory(cat_id + "")) || {};
+
+
+
   return (
     <>
       <Link
-        onClick={() => onActive(cat_id)}
         key={cat_id}
-        href={`/categories/dua?cat_id=${cat_id}&subcat_id=${subcategories[0]?.subcat_id}`}
+        href={`/categories/dua?cat_id=${cat_id}&subcat_id=${
+          (subcategories || [])[0]?.subcat_id
+        }`}
         className={`${
           isActive ? "bg-[#E8F0F5]" : ""
         }  hover:bg-[#E8F0F5] block rounded-lg cursor-pointer group/card`}

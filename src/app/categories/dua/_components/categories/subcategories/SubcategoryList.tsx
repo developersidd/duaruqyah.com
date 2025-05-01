@@ -1,3 +1,4 @@
+"use client";
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import SubcategoryItem from "./SubcategoryItem";
