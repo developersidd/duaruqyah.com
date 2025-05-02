@@ -7,7 +7,7 @@ const getCategories = async () => {
       return { data: res.data?.data };
     }
   } catch (error) {
-    console.log(" error:", error)
+    console.log(" error on getting categories:", error);
     return { error: "Something went wrong" };
   }
 };

@@ -2,7 +2,7 @@
 import { Category } from "@/types/index.type";
 import Image from "next/image";
 import { FC } from "react";
-import CategoryList from "./DuaCategoryList";
+import DuaCategoryList from "./DuaCategoryList";
 
 type DuaCategoryProps = {
   categories: Category[];
@@ -26,7 +26,7 @@ const DuaCategories: FC<DuaCategoryProps> = ({ categories }) => {
           />
         </button>
       </div>
-      <CategoryList categories={categories} />
+      <DuaCategoryList categories={categories} />
       <button className="md:hidden px-4 text-[12px] py-2 mx-auto mt-7 rounded-full flex items-center gap-1 bg-[#292D321A]">
         <span> সবগুলো দেখুন </span>
         <Image

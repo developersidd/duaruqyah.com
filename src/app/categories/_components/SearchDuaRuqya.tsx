@@ -4,7 +4,7 @@ import useDebounce from "@/hooks/useDebounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const SearchCategories = () => {
+const SearchDuaRuqya = () => {
   const [search, setSearch] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -21,19 +21,14 @@ const SearchCategories = () => {
     router.push(`${pathname}?${params.toString()}`);
   });
   return (
-    <div className="">
-      <div className="p-2 mx-2 mb-3 bg-primary-green/10 rounded-lg">
-        <h1 className="text-center text-base text-primary-green font-medium">
-          Categories
-        </h1>
-      </div>
-      <div className="focus-within:border-primary-green focus-within:border-2 shadow-sm border flex items-center w-[95%] mx-auto p-1 h-12 bg-white rounded-lg ">
+    <div className="w-[30%]">
+      <div className="focus-within:border-primary-green border-2 border-[#F4F4F4]  flex items-center w-full mx-auto p-1 h-[42px] bg-[#F4F4F4] rounded-lg ">
         <div className="pl-3">
-          <Icon classes={"w-5"} name="search.svg" alt={"search"} />
+          <Icon classes={"w-4"} name="search.svg" alt={"search"} />
         </div>
         <input
-          placeholder="Search By Dua Name"
-          className="w-full h-full outline-none border-none p-4 text-sm"
+          placeholder="যে দোয়া/রুকিয়া খুঁজতে চাচ্ছেন সেটি এখানে সার্চ করুন..."
+          className="w-full h-full outline-none border-none bg-inherit py-3 px-3 text-sm"
           type="text"
           onChange={(e) => debounceHandler(e.target.value)}
           name=""
@@ -44,4 +39,4 @@ const SearchCategories = () => {
   );
 };
 
-export default SearchCategories;
+export default SearchDuaRuqya;

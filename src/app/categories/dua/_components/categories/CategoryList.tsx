@@ -7,7 +7,6 @@ type CategoryListProps = {
 };
 
 const CategoryList = ({ categories, searchParams }: CategoryListProps) => {
-  console.log(" searchParams:", searchParams);
   const cat_id = Number(searchParams.get("cat_id"));
   return (
     <div className="space-y-3">
