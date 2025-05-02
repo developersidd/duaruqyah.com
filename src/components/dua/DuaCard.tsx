@@ -1,9 +1,15 @@
+import { Dua } from "@/types/index.type";
+import { FC } from "react";
 import Icon from "../common/Icons";
 import DuaAction from "./DuaAction";
 import DuaAudio from "./DuaAudio";
 const bottomIcons = ["copy", "bookmark", "memorize", "share", "report"];
 
-const DuaCard = ({ dua }) => {
+type DuaCardProps = {
+  dua: Dua;
+};
+
+const DuaCard: FC<DuaCardProps> = ({ dua }) => {
   const {
     audio,
     bottom_en,
@@ -61,18 +67,7 @@ const DuaCard = ({ dua }) => {
       </div>
       <div className="flex items-center justify-between">
         <DuaAudio audioSrc={audio} />
-        <DuaAction
-          dua={{
-            id,
-            cat_id,
-            subcat_id,
-            dua_name_en,
-            top_en,
-            dua_indopak,
-            translation_en,
-            bottom_en,
-          }}
-        />
+        <DuaAction dua={dua} />
       </div>
     </article>
   );

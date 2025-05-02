@@ -1,4 +1,5 @@
 import { getCategories } from "@/api/categories.api";
+import { getDuasByCategory } from "@/api/dua.api";
 import Icon from "@/components/common/Icons";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import DuaList from "../../../components/dua/DuaList";
@@ -12,8 +13,9 @@ type HomeProps = {
 const Home = async ({ searchParams }: HomeProps) => {
   const queries = await searchParams;
   const queryObject = new URLSearchParams(queries);
-
+  const cat_id = queryObject.get("cat_id") as string;
   const { data: categories, error } = (await getCategories()) || {};
+  
   return (
     <>
       <DashboardHeader>
@@ -34,7 +36,7 @@ const Home = async ({ searchParams }: HomeProps) => {
         </section>
 
         <section className="h-[calc(100vh-100px)] w-full overflow-y-auto scrollbar-hide ">
-          <DuaList />
+          <DuaList cat_id={cat_id} />
         </section>
 
         <section className="h-[calc(100vh-100px)]">

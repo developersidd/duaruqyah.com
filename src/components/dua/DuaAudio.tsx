@@ -1,13 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+"use client";
+import { FC, useEffect, useRef, useState } from "react";
 import Icon from "../common/Icons";
 
-const DuaAudio = ({ audioSrc }) => {
-  const audioRef = useRef(null);
+type DuaAudioProps = {
+  audioSrc: string;
+};
+
+const DuaAudio: FC<DuaAudioProps> = ({ audioSrc }) => {
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [play, setPlay] = useState(false);
   useEffect(() => {
-    const audio = audioRef.current;
+    const audio = audioRef.current as HTMLAudioElement;
     // Update the time as the audio plays
     const updateTime = () => {
       setCurrentTime(audio.currentTime);
@@ -25,7 +30,7 @@ const DuaAudio = ({ audioSrc }) => {
     };
   }, []);
 
-  const formatTime = (time) => {
+  const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     // Format the time in MM:SS
@@ -37,10 +42,11 @@ const DuaAudio = ({ audioSrc }) => {
 
   const handlePlayPause = () => {
     setPlay(!play);
+
     if (play) {
-      audioRef.current.pause();
+      audioRef.current?.pause();
     } else {
-      audioRef.current.play();
+      audioRef.current?.play();
     }
   };
   return (

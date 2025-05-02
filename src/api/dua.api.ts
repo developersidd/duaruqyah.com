@@ -7,8 +7,7 @@ const getDuasByCategory = async (cat_id: string) => {
       return { data: res.data?.data };
     }
   } catch (error) {
-    console.log(" error:", error);
-    return { error: "Something went wrong" };
+    return { error: "Something went wrong fetching Duas" };
   }
 };
 

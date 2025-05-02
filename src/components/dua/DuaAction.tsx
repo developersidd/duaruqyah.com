@@ -1,14 +1,23 @@
+"use client";
+import { Dua } from "@/types/index.type";
+import { FC } from "react";
 import { toast } from "react-toastify";
 import Icon from "../common/Icons";
-
-const DuaAction = ({ dua }) => {
+type DuaActionProps = {
+  dua: Dua;
+};
+const DuaAction: FC<DuaActionProps> = ({ dua }) => {
   const { dua_name_en, dua_indopak, translation_en, bottom_en } = dua || {};
   const handleCopyDua = () => {
     navigator.clipboard.writeText(
       `${dua_name_en} \n ${dua_indopak} \n ${translation_en} \n ${bottom_en}`
     );
-    toast.success("Dua Copied to Clipboard");
   };
+  console.log(
+    " dua",
+    `${dua_name_en} \n ${dua_indopak} \n ${translation_en} \n ${bottom_en}`
+  );
+  toast.success("Dua Copied to Clipboard");
   return (
     <div className="flex items-center gap-8">
       {/* bottomIcons */}
