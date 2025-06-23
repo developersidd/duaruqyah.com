@@ -5,8 +5,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <section className="flex gap-5">
       <DashboardSidebar />
-      <div className="w-[calc(100vw-100px)]  ml-auto ">
-        {children}</div>
+      <div className="w-[calc(100vw-68px)]  ml-auto ">{children}</div>
     </section>
   );
 };

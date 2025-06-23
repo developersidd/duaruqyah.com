@@ -3,6 +3,7 @@ import Icon from "@/components/common/Icons";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import DuaList from "../../../components/dua/DuaList";
 import Settings from "../../../components/settting/Settings";
+import SearchDuaRuqya from "../_components/SearchDuaRuqya";
 import Categories from "./_components/categories/Categories";
 
 type HomeProps = {
@@ -13,9 +14,9 @@ const Home = async ({ searchParams }: HomeProps) => {
   const queries = await searchParams;
   const queryObject = new URLSearchParams(queries);
   const cat_id = queryObject.get("cat_id") as string;
-  const { data: categories, error } = (await getCategories()) || {};
-  console.log(" categories:", categories)
-  console.log(" error:", error)
+  const searchQuery = queryObject.get("q") as string;
+  const { data: categories, error } =
+    (await getCategories({ q: encodeURI(searchQuery) })) || {};
 
   return (
     <>
@@ -30,6 +31,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             <h5 className="text-sm text-primary-black/60"> Dua Details </h5>
           </div>
         </div>
+        <SearchDuaRuqya />
       </DashboardHeader>
       <main className="bg-secondary scroll-smooth py-5 w-[calc(100vw-85px)] px-5 grid grid-cols-[350px,1fr,300px] fixed top-[60px] right-0 gap-x-7 gap-y-5 rounded-tl-xl bg-[#F5F5F5] border  border-[#292D320D]">
         <section className="h-[calc(100vh-100px)] w-full  bg-white px-2 py-3 rounded-xl">

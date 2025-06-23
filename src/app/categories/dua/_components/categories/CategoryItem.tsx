@@ -25,7 +25,6 @@ const CategoryItem = async ({ category, isActive }: CategoryItemProps) => {
   return (
     <>
       <Link
-        key={cat_id}
         href={`/categories/dua?cat_id=${cat_id}&subcat_id=${
           (subcategories || [])[0]?.subcat_id
         }`}
