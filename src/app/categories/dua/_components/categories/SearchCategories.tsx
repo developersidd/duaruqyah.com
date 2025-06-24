@@ -2,14 +2,19 @@
 import Icon from "@/components/common/Icons";
 import useDebounce from "@/hooks/useDebounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchCategories = () => {
   const [search, setSearch] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-
+  useEffect(() => {
+    const query = searchParams.get("q");
+    if (query) {
+      setSearch(query);
+    }
+  }, [searchParams]);
   const debounceHandler = useDebounce((value) => {
     setSearch(value);
     const params = new URLSearchParams(searchParams.toString());
@@ -37,6 +42,7 @@ const SearchCategories = () => {
           type="text"
           onChange={(e) => debounceHandler(e.target.value)}
           name=""
+          value={search}
           id=""
         />
       </div>

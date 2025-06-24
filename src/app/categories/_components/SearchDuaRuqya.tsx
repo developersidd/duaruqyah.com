@@ -9,7 +9,7 @@ const SearchDuaRuqya = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-
+  
   const debounceHandler = useDebounce((value) => {
     setSearch(value);
     const params = new URLSearchParams(searchParams.toString());
@@ -27,6 +27,7 @@ const SearchDuaRuqya = () => {
           <Icon classes={"w-4"} name="search.svg" alt={"search"} />
         </div>
         <input
+        value={search}
           placeholder="যে দোয়া/রুকিয়া খুঁজতে চাচ্ছেন সেটি এখানে সার্চ করুন..."
           className="w-full h-full outline-none border-none bg-inherit py-3 px-3 text-sm"
           type="text"
