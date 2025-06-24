@@ -13,10 +13,10 @@ const DuaAction: FC<DuaActionProps> = ({ dua }) => {
       `${dua_name_en} \n ${dua_indopak} \n ${translation_en} \n ${bottom_en}`
     );
   };
-  console.log(
-    " dua",
-    `${dua_name_en} \n ${dua_indopak} \n ${translation_en} \n ${bottom_en}`
-  );
+  //console.log(
+  //  " dua",
+  //  `${dua_name_en} \n ${dua_indopak} \n ${translation_en} \n ${bottom_en}`
+  //);
   toast.success("Dua Copied to Clipboard");
   return (
     <div className="flex items-center gap-8">

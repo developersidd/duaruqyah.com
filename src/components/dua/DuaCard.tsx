@@ -26,7 +26,7 @@ const DuaCard: FC<DuaCardProps> = ({ dua }) => {
   } = dua || {};
 
   return (
-    <article id={`dua-${dua_id}`} className="w-full bg-white rounded-xl p-7">
+    <article className="w-full bg-white rounded-xl p-7">
       <div className="flex items-center gap-3 mb-5">
         <Icon classes={"size-10 mx-0"} alt={"dua-card"} name={"duacard.svg"} />
         {/* dua_name_en */}

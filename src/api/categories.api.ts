@@ -1,3 +1,4 @@
+"use server";
 import { api } from ".";
 
 const getCategories = async (queries?: { [key: string]: string }) => {
@@ -6,7 +7,6 @@ const getCategories = async (queries?: { [key: string]: string }) => {
   if (queries?.q) {
     path += `${queryString}`;
   }
-  console.log(" path:", path)
   try {
     const res = await api.get(path);
     if (res.status === 200) {

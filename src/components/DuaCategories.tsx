@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 import { Category } from "@/types/index.type";
 import Image from "next/image";
 import { FC } from "react";

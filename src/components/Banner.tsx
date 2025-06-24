@@ -55,10 +55,10 @@ const Banner = () => {
           </div>
           {/* dua search list */}
           <div className="mt-[18px] w-full md:w-[600px] flex flex-wrap gap-x-[6px] gap-y-2 md:gap-y-3 items-center justify-center px-1">
-            {duaSearchList.map((item) => (
+            {duaSearchList.map((item, ind) => (
               <Link
                 className="bg-white text-primary-black/70 font-medium text-[12px] md:text-sm inline-block py-[5px] md:py-2 px-[13px] md:px-4 border-primary-black/20 border rounded-full"
-                key={item}
+                key={item + ind}
                 href={item}
               >
                 {" "}

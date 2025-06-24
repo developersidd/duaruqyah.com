@@ -1,3 +1,4 @@
+"use server";
 import { api } from ".";
 
 const getSubCategories = async (subcat_id: string) => {

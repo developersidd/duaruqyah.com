@@ -18,7 +18,6 @@ const CollectionHeader = ({
   useEffect(() => {
     function setTabPosition() {
       const currentTab = tabsRef.current[activeTabIndex];
-      console.log(currentTab?.offsetLeft, currentTab?.clientWidth);
       setTabBoxLeft(currentTab?.offsetLeft ?? 0);
       setTabBoxWidth(currentTab?.clientWidth ?? 0);
     }

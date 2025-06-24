@@ -1,3 +1,4 @@
+"use server";
 import { api } from ".";
 
 const getDuasByCategory = async (cat_id: string) => {

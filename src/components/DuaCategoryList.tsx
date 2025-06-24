@@ -8,7 +8,7 @@ type DuaCategoryListProps = {
 };
 
 const DuaCategoryList: FC<DuaCategoryListProps> = ({
-  categories,
+  categories = [],
   isShowAll,
 }) => {
   return (

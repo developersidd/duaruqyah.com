@@ -62,7 +62,6 @@ const Header = () => {
           <motion.div
             animate={isOpen ? "open" : "closed"}
             onClick={() => {
-              console.log("clicked");
               setIsOpen(!isOpen);
             }}
             className="xl:hidden z-30  size-[32px] md:size-[40px] 2xl:size-[46px]  px-[5px]  py-2 rounded-md border-[1.5px] border-primary-light-gray grid place-items-center bg-primary-light-gray space-y-[6px] cursor-pointer"

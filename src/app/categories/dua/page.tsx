@@ -14,7 +14,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   const queries = await searchParams;
   const queryObject = new URLSearchParams(queries);
   const cat_id = queryObject.get("cat_id") as string;
-  const searchQuery = queryObject.get("q") as string;
+  const searchQuery = queryObject.get("q") || "" as string;
   const { data: categories, error } =
     (await getCategories({ q: encodeURI(searchQuery) })) || {};
 

@@ -21,9 +21,8 @@ const DuaCategoryItem: FC<DuaCategoryItemProps> = async ({
     <Link href={`/categories/dua?cat_id=${cat_id}&subcat_id=${firstSubCatId}`} key={id}>
       <div
         key={id}
-        className={`rounded-xl  p-2 md:p-3 ${
-          isShowAll ? "bg-white" : "border"
-        }`}
+        className={`rounded-xl  p-2 md:p-3 border
+        `}
       >
         <div className="flex items-center justify-betwee gap-3">
           <div className="bg-[#292D320D] p-3 rounded-xl min-w-max">

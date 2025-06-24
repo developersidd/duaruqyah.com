@@ -17,7 +17,7 @@ const DuaList: FC<DuaListProps> = async ({ cat_id }) => {
   } else if (!duas || duas?.length === 0) {
     content = <p>No duas found for this category.</p>;
   } else {
-    content = duas?.map((dua: Dua) => <DuaCard key={dua.id} dua={dua} />);
+    content = duas?.map((dua: Dua) => <DuaCard key={dua.id + dua.dua_name_en} dua={dua} />);
   }
   return <div className="space-y-5 ">{content}</div>;
 };

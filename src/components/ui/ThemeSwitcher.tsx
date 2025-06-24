@@ -4,6 +4,7 @@ import Icon from "../common/Icons";
 
 const ThemeSwitcher = () => {
   const [theme, setTheme] = useState("dark");
+  const [isMounted, setIsMounted] = useState(false);
   // handle the theme change
   const handleChangeTheme = (theme: string) => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -11,7 +12,13 @@ const ThemeSwitcher = () => {
     document.documentElement.setAttribute("data-theme", newTheme);
     setTheme(newTheme);
   };
+
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
     const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
     // update the theme based on the function argument
