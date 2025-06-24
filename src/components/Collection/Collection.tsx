@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import BookMarks from "./BookMarks";
 import CollectionHeader from "./CollectionHeader";
@@ -32,17 +32,14 @@ const Collection = () => {
         tabs={tabs}
         setActiveTabIndex={setActiveTabIndex}
       />
-      <AnimatePresence >
-        <motion.div
-          key={activeTabIndex}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -50 }}
-          transition={{ duration: 0.4 }}
-        >
-          {tabs[activeTabIndex].component}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        key={activeTabIndex}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {tabs[activeTabIndex].component}
+      </motion.div>
     </section>
   );
 };
