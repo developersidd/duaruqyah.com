@@ -21,7 +21,6 @@ A web-based platform for accessing daily Islamic duas and azkar, organized by ca
 - **Frontend:** Next.js, TypeScript  
 - **Backend:** Express.js  
 - **Database:** PostgreSQL (Neon)  
-- **ORM / Querying:** (Add if you used Prisma / raw queries)  
 - **Design Source:** Figma  
 
 ---
